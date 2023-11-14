@@ -7,7 +7,7 @@ let Workouts = require('../models/workouts');
 router.get('/', async(req,res,next) =>{
     try{
         const WorkoutList = await Workouts.find();
-        res.render('workout_tracker',{
+        res.render('workouts',{
             title: 'Workouts',
             WorkoutList: WorkoutList
         });

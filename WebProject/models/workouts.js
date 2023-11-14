@@ -7,7 +7,7 @@ let workoutModel = mongoose.Schema({
     Exercises: String
     },
     {
-        collection: "workout_tracker"
+        collection: "workouts"
     }
 
 );
