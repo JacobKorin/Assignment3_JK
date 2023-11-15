@@ -1,12 +1,14 @@
+/* Styles for the main body section */
 .bodySection {
   font-family: Arial, sans-serif;
   background-color: #d9d9d9; /* A distinguishable neutral color */
   padding: 15px;
-  min-height: 100vh;
+  min-height: 100vh;/* Full viewport height */
   color: #333;
   line-height: 1.6;
 }
 
+/*style for the text on home page*/
 .welcome-container {
   text-align: center;
   padding: 20px;

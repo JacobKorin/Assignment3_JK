@@ -3,9 +3,12 @@ var router = express.Router();
 //const { router } = require('../config/app');
 let Workouts = require('../models/workouts.js');
 
-module.exports.DislayWorkoutlist = async (req,res,next)=>{ //< Mark function as async
+//Defining a function to display all the workouts
+module.exports.DislayWorkoutlist = async (req,res,next)=>{
     try{
-       var WorkoutList = await Workouts.find(); //< Use of await keyword
+       var WorkoutList = await Workouts.find(); 
+
+       //when function call render book/list
        res.render('book/list', {
           title: 'Workout List', 
           WorkoutList: WorkoutList
@@ -19,6 +22,7 @@ module.exports.DislayWorkoutlist = async (req,res,next)=>{ //< Mark function as 
     }
  };
 
+ //Defining a function render the add workout page
  module.exports.AddWorkout = async (req,res,next)=>{
     try{
         res.render('book/add',
@@ -36,6 +40,7 @@ module.exports.DislayWorkoutlist = async (req,res,next)=>{ //< Mark function as 
     }
 };
 
+//Defining a function to update the database after a new workout has been added
 module.exports.ProcessWorkout = async (req,res,next)=>{
     try{
         let newWorkout = Workouts({
@@ -57,6 +62,7 @@ module.exports.ProcessWorkout = async (req,res,next)=>{
     }
 };
 
+//Defining a function to render the page that allows the user to edit a db entry
 module.exports.EditWorkout = async (req,res,next)=>{
     try{
     const id = req.params.id;
@@ -76,6 +82,7 @@ catch(error){
 }
 }
 
+//Defining a function to update the database after a workout has been edited
 module.exports.ProcessEditWorkout = (req,res,next)=>{
     try{
         const id = req.params.id;
@@ -99,6 +106,7 @@ module.exports.ProcessEditWorkout = (req,res,next)=>{
     }
 }
 
+//Defining a function to delete an entry from the db
 module.exports.DeleteWorkout = (req,res,next)=>{
     try{
         let id = req.params.id;

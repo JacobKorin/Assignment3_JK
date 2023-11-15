@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
 });
 
+//Get workouts page
 router.get('/workouts', function(req, res, next) {
   res.render('index', { title: 'Workout Tracker' });
 });

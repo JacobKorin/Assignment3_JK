@@ -7,9 +7,12 @@
     <main class="container">
         <div class="row">
             <div class="offset-md-1 col-md-10">
+                
+                <!-- Creating the add workout button-->
                 <a href="/workoutslist/add" class="btn btn-primary" 
                 role="button"><i class="fas fa-plus-circle"></i> Add Workout</a>      
             <br>
+            <!-- Table header -->
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
                     <th class="text-center col-2">Name</th>
@@ -17,6 +20,8 @@
                     <th class="text-center col-1">Length</th>
                     <th class="text-center col-4">Exercises</th>
                 </tr>
+
+                <!-- Looping through the db to display the whole db. Edit and delete button code is after it-->
                 <% for(let count=0;count<WorkoutList.length;count++) { %>    
                 <tr class="d-flex">
                     <td class="text-center col-2"><%= WorkoutList[count].Name %></td>
@@ -24,11 +29,14 @@
                     <td class="text-center col-1"><%= WorkoutList[count].Length %></td>
                     <td class="text-center col-4"><%= WorkoutList[count].Exercises %></td>
                     <td class="text-center col-1">
+                    
                         <a href="/workoutslist/edit/<%= WorkoutList[count]._id %>" 
                             class="btn btn-primary btn-sm">
                             <i class="fas fa-pencil-alt"></i> Edit
                         </a>
                     </td>
+
+                    
                     <td class="text-center col-1">
                         <a href="/workoutslist/delete/<%= WorkoutList[count]._id %>" 
                             class="btn btn-danger btn-sm">

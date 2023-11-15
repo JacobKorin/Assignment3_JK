@@ -6,6 +6,7 @@
         <div class="offset-md-3 col-md-6">
             <h1><%= title %></h1>
 
+            <!-- Creating a form for the user to fill out in order to create a new db entry -->
             <form class="form" method="POST">
                 <div class="form-group">
                     <label for="nameTextField">Workout Title</label>
@@ -39,9 +40,11 @@
                     name="Exercises" required></textarea>
                 </div>
 
+                <!-- Submit button-->
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
                 
+                <!-- Creating a link on the buttons -->
                     <a href="/workoutslist" class="btn btn-warning">
                         <i class="fas fa-undo"></i> Cancel</a>
 

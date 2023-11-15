@@ -1,3 +1,4 @@
+//Defining variables in order to use required libraries
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
@@ -23,9 +24,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.static(path.join(__dirname, '../node_modules')));
 
+//Contacting to the database
 let mongoose = require('mongoose');
 let DB = require('./db');
-
 mongoose.connect(DB.URI);
 let mongDB = mongoose.connection;
 mongDB.on('error',console.error.bind(console,'Connection Error'));
@@ -33,6 +34,7 @@ mongDB.once('open', ()=>{
   console.log('connected to the MongoDB');
 })
 
+//Defining the paths to my routes
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let workoutsRouter = require('../routes/workouts');
