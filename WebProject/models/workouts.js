@@ -1,8 +1,8 @@
 let mongoose = require('mongoose');
 
 let workoutModel = mongoose.Schema({
-    date: String,
-    name: String,
+    Name: String,
+    Date: String,
     Length: Number,
     Exercises: String
     },
