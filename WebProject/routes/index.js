@@ -10,8 +10,4 @@ router.get('/workouts', function(req, res, next) {
   res.render('index', { title: 'Workout Tracker' });
 });
 
-router.get('/weight', function(req, res, next) {
-  res.render('index', { title: 'Weight Tracker' });
-});
-
 module.exports = router;

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
     <%- include partials/header.ejs %>
-    
-  </head>
   <body>
-    
-    <%- include partials/nav_bar.ejs %>
-    <h1>Welcome to the  <%= title %> page</h1>
-    <%- include partials/footer.ejs %>
+    <div class= "bodySection">
+      <%- include partials/nav_bar.ejs %>
+      <div class="welcome-container">
+        <h1>Welcome to Jacob's Workout Tracker%>!</h1>
+        <p>Your personal digital space to track and improve your workout routine.</p>
+        <p>By clicking on "workouts" at the top of your screen you can view all of your previous workouts or click on "Add Workout" to start logging an new one</p>
+      </div>
+      <%- include partials/footer.ejs %>
+    </div>
   </body>
 </html>
