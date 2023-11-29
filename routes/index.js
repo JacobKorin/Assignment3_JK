@@ -16,7 +16,7 @@ router.get('/login',function(req,res,next){
     })
   }
   else{
-    return res.redirect('/home')
+    return res.redirect('/')
   }
 })
 
@@ -39,7 +39,7 @@ router.post('/login',function(req,res,next){
         {
           return next(err)
         }
-        return res.redirect('/bookslist');
+        return res.redirect('/');
       })
   })(req,res,next)
 })
@@ -55,7 +55,7 @@ router.get('/register',function(req,res,next){
     })
   }
   else{
-    return res.redirect('/home')
+    return res.redirect('/')
   }
 })
 
@@ -84,7 +84,7 @@ router.post('/register', function(req,res,next){
     }
     else{
       return passport.authenticate('local')(req,res,()=>{
-        res.redirect('/bookslist');
+        res.redirect('/');
       })
     }
   })
@@ -97,7 +97,7 @@ router.get('/logout',function(req,res,next){
       return next(err);
     }
   })
-  res.redirect('/home')
+  res.redirect('/')
 })
 
 /* GET home page. */
