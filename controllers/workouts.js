@@ -11,7 +11,9 @@ module.exports.DislayWorkoutlist = async (req,res,next)=>{
        //when function call render book/list
        res.render('book/list', {
           title: 'Workout List', 
-          WorkoutList: WorkoutList
+          WorkoutList: WorkoutList,
+          displayName: req.user ? req.user.displayName:''
+
        });
     }catch(err){
        console.error(err);
@@ -27,7 +29,8 @@ module.exports.DislayWorkoutlist = async (req,res,next)=>{
     try{
         res.render('book/add',
         {
-            title:'Add Workout'
+            title:'Add Workout',
+            displayName: req.user ? req.user.displayName:'',
         })
     }
     catch(err)
@@ -70,6 +73,7 @@ module.exports.EditWorkout = async (req,res,next)=>{
     res.render('book/edit',
     {
         title:'Edit Book',
+        displayName: req.user ? req.user.displayName:'',
         Workouts:workoutToEdit
     })
 }

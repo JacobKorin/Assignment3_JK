@@ -5,6 +5,14 @@ let mongoose = require('mongoose');
 let Workouts = require('../models/workouts.js');
 let WorkoutsController = require('../controllers/workouts.js');
 
+function requireAuth(req,res,next){
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/login')
+    }
+    next();
+}
+
 // Read Operation
 router.get('/', WorkoutsController.DislayWorkoutlist);
 

@@ -8,7 +8,15 @@ var router = express.Router();
 
 let app = express();
 
+let session = require('express-session');
+let passport = require('passport');
+let passportLocal = require('passport-local');
+let localStrategy = passportLocal.Strategy;
+let flash = require('connect-flash');
 
+// create a user model instance
+let userModel = require('../models/user');
+let User = userModel.User;
 
 
 
@@ -33,6 +41,23 @@ mongDB.on('error',console.error.bind(console,'Connection Error'));
 mongDB.once('open', ()=>{
   console.log('connected to the MongoDB');
 })
+
+// Set-up Express-Session
+app.use(session({
+  secret:"SomeSecret",
+  saveUninitialized:false,
+  resave:false
+}));
+// initialize flash-connect
+app.use(flash());
+// implement a user authentication
+passport.use(User.createStrategy());
+// Serialize and Deserialize user information
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser()); 
+// initialize the passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Defining the paths to my routes
 let indexRouter = require('../routes/index');
